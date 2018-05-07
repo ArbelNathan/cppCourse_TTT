@@ -6,53 +6,42 @@ using namespace std;
 #include "Board.hpp"
 #include "Cell.hpp"
 
-	
-	/*char& Board::operator[] ( list<int> l) {
-		cout<< l.front() << " " <<  l.back() << endl;
-		return this->gameTable[l.front()][l.back()] ;
-	}
-
-	*/
-
-	ostream& operator<< (ostream& os, const Board& n){
-		for(int i = 0;i<n.size ;i++){
-		
-		  for(int j = 0; j<n.size; j++)
-		   {
-		        n.gameTable[i][j] = '.';
-		    	os<<n.gameTable[i][j];
-		   }
-		    os<<"\n";
+		//Board[{}] return Cell
+		Cell& Board::operator[] (list<int> l){
+			return this->gameTable[l.front()][l.back()];
 		}
-		return os;
-	}
-
-	//overload = operator
-	Board& Board::operator= (const Board& b){
-		this->size = b.size;
-		this->gameTable = b.gameTable;
-		return *this;
-	}
-	
-/*	//overload = int
-	Board& Board::operator= (char a){
-		if(a == '.' ){
-			for(int i = 0;i<this->size ;i++){
-			    for(int j = 0; j<this->size; j++)
-			    {
-				gameTable[i][j] = '.';
-			    }
-			//gameTable[i][j] = "/n";
-			}
-		}
-		return *this;
-	}*/
-
-	/*//overload = int
-	Board& Board::operator= (const Board& b, int start, int end, char a){
-		b[start][end] = a;
-		return b;
-	}*/
-
-
+        
+        ostream& operator<< (ostream& os, const Board& n){
+        	for (int i = 0; i < n.size; i++) {
+        		for (int j = 0; j < n.size; j++) {
+        			os<<n.gameTable[i][j].get();
+        			os<<' ';
+        		} 
+        	os<<"\n";
+        	}
+        	return os;
+        }
+        
+        //Board='.'
+    	Board& Board::operator= (char a){
+    		 if(a=='.'){
+    			Board temp{this->size};
+    			*this=temp;
+    		 }
+    	}
+    	
+    	//Board=Board
+    	Board& Board::operator= (const Board& b){
+    			Board temp{this->size};
+    			for (int i = 0; i < this->size; i++) {
+        			for (int j = 0; j < this->size; j++) {
+        				if(b.gameTable[i][j].get()!='.')
+    						temp[{i,j}]=b.gameTable[i][j].get();
+        			}
+    			}
+    			this->gameTable=temp.gameTable;
+    			return *this;
+    		
+    	}
+   
 

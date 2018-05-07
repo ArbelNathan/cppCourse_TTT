@@ -10,23 +10,40 @@ using namespace std;
 class Board{
     private:
         Cell** gameTable=new Cell*[0];
-        int size;
+        int size=0;
     
     public:
-        Board(){}
+    
+        Board(){size=0;}
         Board(int a){
             size=a;
-            gameTable = new Cell*[a];
-            for(int i = 0; i < a; ++i) {
-               gameTable[i] = new Cell[a];
+            gameTable = new Cell*[size];
+            for(int i = 0; i < size; ++i) {
+               gameTable[i] = new Cell[size];
             }
         }
+        Board(const Board& b){
+            size=b.size;
+            gameTable = new Cell*[size];
+            for(int i = 0; i < size; ++i) {
+                gameTable[i] = new Cell[size];
+            }
+            for (int i = 0; i < this->size; i++) {
+        			for (int j = 0; j < this->size; j++) {
+        				if(b.gameTable[i][j].get()!='.')
+    						gameTable[i][j]=b.gameTable[i][j].get();
+        			}
+    			}
+        }
         
-        char& operator[] (list<int> l) ;
+        
+        Cell& operator[] (list<int> l);//Board[{}] return Cell
+        
         friend ostream& operator<< (ostream& os, const Board& n);
-	Board& operator= (char a);
-	Board& operator= (const Board& b);
-	//Board& operator= (const Board& b, int start, int end, char a);
+        
+    	Board& operator= (char a);//Board='.'
+    	Board& operator= (const Board& b);//Board=Board
+    	//Board& operator= (const Board& b, int start, int end, char a);
         
    
 };

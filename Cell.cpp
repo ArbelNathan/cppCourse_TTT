@@ -5,22 +5,14 @@
 
 using namespace std;
 
-
- 	ostream& operator<< (ostream& os, const Cell& n){
-		for(int i = 0;i<n.size ;i++){
-		cout<< n.size<< endl;
-			n.cell[i] = '.';
-			os<<n.cell[i];
-		    os<<"\n";
-		}
-		return os;
+	char Cell::get(){
+		return this->value;
 	}
-
-	Cell& Cell::operator= (char a){
-		if(a == '.' ){
-			for(int i = 0;i<this->size ;i++){
-				cell[i] = '.';
-			}
-		}
+	void Cell::set(char c){
+		if(c=='X'||c=='O') this->value=c;
+	}
+	Cell& Cell::operator= (char c){
+		this->set(c);
 		return *this;
 	}
+			

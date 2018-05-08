@@ -41,10 +41,12 @@ using namespace std;
     	
     	//Board=Board
     	Board& Board::operator= (const Board& b){
-    			for (int i = 0; i < this->size; i++) {
-        			for (int j = 0; j < this->size; j++) {
-    						(*this)[{i,j}]=b.gameTable[i][j];
-        			}
+    			if(this->size==b.size){
+    			    for (int i = 0; i < this->size; i++) {
+        		    	for (int j = 0; j < this->size; j++) {
+    				    		(*this)[{i,j}]=b.gameTable[i][j];
+        		    	}
+    		    	}
     			}
     			return *this;
     		

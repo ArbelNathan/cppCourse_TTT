@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
-#include "Cell.hpp"
+#include "Cell.h"
 using namespace std;
 
 	char Cell::get(){

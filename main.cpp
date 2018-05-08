@@ -1,5 +1,7 @@
-#include "Board.hpp"
+#include "Board.h"
 #include <iostream>
+#include "IllegalCharException.hpp"
+#include "IllegalCoordinateException.hpp"
 using namespace std;
 
 int main() {

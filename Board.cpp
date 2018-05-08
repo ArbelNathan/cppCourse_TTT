@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <list>
 using namespace std;
-#include "Board.hpp"
+#include "Board.h"
 
 		//Board[{}] return Cell
 	Cell& Board::operator[] (list<int> l){

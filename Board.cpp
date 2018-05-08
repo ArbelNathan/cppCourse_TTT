@@ -19,7 +19,7 @@ using namespace std;
         	for (int i = 0; i < n.size; i++) {
         		for (int j = 0; j < n.size; j++) {
         			os<<n.gameTable[i][j].get();
-        			os<<' ';
+        			
         		} 
         	os<<"\n";
         	}

@@ -15,3 +15,5 @@ IllegalCharException.o: IllegalCharException.hpp
 
 IllegalCoordinateException.o: IllegalCoordinateException.hpp
 $(CXX) $(CXXFLAGS) -c IllegalCoordinateException.hpp
+
+clean: rm *.o a.out

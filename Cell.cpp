@@ -9,7 +9,7 @@ using namespace std;
 	}
 	void Cell::set(char c){
 		if(c != 'X' && c != 'O'&& c != '.'){
-			throw 	IllegalCharException exChar(c);
+			throw 	IllegalCharException(c);
 		}
 		else { this->value=c;}
 	}

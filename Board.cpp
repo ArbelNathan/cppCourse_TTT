@@ -33,12 +33,9 @@ using namespace std;
     			this->setSize(temp.getSize());
 			for(int i = 0; i < this->size; i++)
 				this->gameTable[i] = temp.gameTable[i];
-    			//this->setGameTable(temp.getGameTable());
     		 }
 		else if(a != 'X' && a != 'O'){
-			IllegalCharException exChar;
-			exChar.setChar(a);
-			throw exChar;
+			throw IllegalCharException(a);
 		}
 		return *this;
     	}

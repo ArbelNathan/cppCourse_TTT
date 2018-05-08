@@ -9,7 +9,7 @@ class IllegalCharException{
 	private:
 	 	char c;
 	public:
-		IllegalCharException(char a){c = a}
+		IllegalCharException(char a){c = a;}
 		
 		char theChar() const{ 
 			return c;

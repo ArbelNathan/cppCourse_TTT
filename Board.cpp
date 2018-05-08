@@ -41,16 +41,27 @@ using namespace std;
     	
     	//Board=Board
     	Board& Board::operator= (const Board& b){
-    			if(this->size==b.size){
+    			if(this->size!=b.size){
+    			    this->resize(b.size);
+    			}
     			    for (int i = 0; i < this->size; i++) {
         		    	for (int j = 0; j < this->size; j++) {
     				    		(*this)[{i,j}]=b.gameTable[i][j];
         		    	}
     		    	}
-    			}
+    			
     			return *this;
     		
     	}
+
+    void Board::resize(int size){
+        this->size=size;
+        this->gameTable = new Cell*[size];
+            for(int i = 0; i < size; ++i) {
+               this->gameTable[i] = new Cell[size];
+               
+            }
+    }
 
 	//destructor
 	Board::~Board(){

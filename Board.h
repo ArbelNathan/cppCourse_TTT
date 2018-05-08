@@ -49,6 +49,7 @@ class Board{
 	int getSize(){return this->size;}
 	void setGameTable(Cell** g){*this->gameTable = *g;  }
 	Cell** getGameTable(){return this->gameTable;}
+    void resize(int size);
     	~Board();//destructor
         
    

@@ -53,7 +53,9 @@ int main() {
 	board1[{3,3}] = 'O';
 	cout << board2 << endl;  /* Shows a board with an X at top-left */
 	cout << board1 << endl;  /* Shows a board with an X at top-left and O at bottom-right */
-
+	Board board3{2};
+	board3=board1;
+	cout << board3 << endl;
 	cout << "Good bye!" << endl;
 
 	return 0;

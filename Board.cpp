@@ -30,7 +30,10 @@ using namespace std;
     	Board& Board::operator= (char a){
     		 if(a=='.'){
     			Board temp{this->size};
-    			*this=temp;
+    			this->setSize(temp.getSize());
+			for(int i = 0; i < this->size; i++)
+				this->gameTable[i] = temp.gameTable[i];
+    			//this->setGameTable(temp.getGameTable());
     		 }
 		else if(a != 'X' && a != 'O'){
 			IllegalCharException exChar;
@@ -49,10 +52,17 @@ using namespace std;
     						temp[{i,j}]=b.gameTable[i][j].get();
         			}
     			}
-    			this->gameTable=temp.gameTable;
+    			this->setSize(temp.getSize());
+    			this->setGameTable(temp.getGameTable());
     			return *this;
     		
     	}
+
+	//destructor
+	Board::~Board(){
+		delete [] gameTable;
+
+	}
    
 
 

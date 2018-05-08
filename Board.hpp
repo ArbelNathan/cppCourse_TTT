@@ -45,7 +45,11 @@ class Board{
         
     	Board& operator= (char a);//Board='.'
     	Board& operator= (const Board& b);//Board=Board
-    	//Board& operator= (const Board& b, int start, int end, char a);
+	void setSize(int size){this->size = size;}
+	int getSize(){return this->size;}
+	void setGameTable(Cell** g){*this->gameTable = *g;  }
+	Cell** getGameTable(){return this->gameTable;}
+    	~Board();//destructor
         
    
 };

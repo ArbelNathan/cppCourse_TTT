@@ -14,8 +14,6 @@ class Cell{
 		char get();
 		void set(char c);
 		Cell& operator= (char c);
-			
-
 
 };
 

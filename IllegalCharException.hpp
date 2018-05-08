@@ -1,13 +1,11 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
-#include <exception>
-#include <exception>
 #include <stdbool.h>
 using namespace std;
 #pragma once
 
-class IllegalCharException: public exception{
+class IllegalCharException{
 	private:
 	 	char c;
 	public:

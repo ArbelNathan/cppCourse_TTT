@@ -13,7 +13,7 @@ using namespace std;
 			exChar.setChar(c);
 			throw exChar;
 		}
-		else if(c=='X'||c=='O') this->value=c;
+		else { this->value=c;}
 	}
 	Cell& Cell::operator= (char c){
 		this->set(c);

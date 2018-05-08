@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include "IllegalCharException.hpp"
 using namespace std;
 #pragma once
 
@@ -17,3 +18,4 @@ class Cell{
 
 
 };
+

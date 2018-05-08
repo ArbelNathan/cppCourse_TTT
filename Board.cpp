@@ -4,10 +4,14 @@
 #include <list>
 using namespace std;
 #include "Board.hpp"
-#include "Cell.hpp"
 
 		//Board[{}] return Cell
-		Cell& Board::operator[] (list<int> l){
+	Cell& Board::operator[] (list<int> l){
+			if(l.front() > this->size-1 || l.back() > this->size-1){
+				IllegalCoordinateException exCoor;
+				exCoor.setCoor(l.front(),l.back());
+				throw exCoor;
+			}
 			return this->gameTable[l.front()][l.back()];
 		}
         
@@ -28,6 +32,12 @@ using namespace std;
     			Board temp{this->size};
     			*this=temp;
     		 }
+		else if(a != 'X' && a != 'O'){
+			IllegalCharException exChar;
+			exChar.setChar(a);
+			throw exChar;
+		}
+		return *this;
     	}
     	
     	//Board=Board
@@ -44,4 +54,5 @@ using namespace std;
     		
     	}
    
+
 

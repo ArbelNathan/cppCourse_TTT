@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <list>
 #include "Cell.hpp"
+#include "IllegalCharException.hpp"
+#include "IllegalCoordinateException.hpp"
 using namespace std;
 #pragma once
 
@@ -47,4 +49,5 @@ class Board{
         
    
 };
+
 

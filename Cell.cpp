@@ -8,10 +8,8 @@ using namespace std;
 		return this->value;
 	}
 	void Cell::set(char c){
-		if(c != 'X' && c != 'O'){
-			IllegalCharException exChar;
-			exChar.setChar(c);
-			throw exChar;
+		if(c != 'X' && c != 'O'&& c != '.'){
+			throw 	IllegalCharException exChar(c);
 		}
 		else { this->value=c;}
 	}

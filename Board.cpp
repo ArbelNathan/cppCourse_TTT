@@ -65,8 +65,12 @@ using namespace std;
 
 	//destructor
 	Board::~Board(){
-	   
-		delete [] gameTable;
+	    for (int i = 0; i < this->size; i++){
+            delete [] gameTable[i];
+        }
+    
+        delete [] gameTable;
+	
 
 	}
    

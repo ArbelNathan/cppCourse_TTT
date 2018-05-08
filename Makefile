@@ -1,4 +1,3 @@
-
-all//: Board.cpp Cell.cpp 
-		g++ -std=c++11 -c Board.cpp  
+all//: Board.cpp Cell.cpp
+		g++ -std=c++11 -c Board.cpp  Cell.cpp 
 

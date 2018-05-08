@@ -16,6 +16,7 @@ class Cell{
 		char get();
 		void set(char c);
 		Cell& operator= (char c);
+		Cell& operator= (const Cell& c);
 		bool operator ==(char c) const {if(value==c)return true; return false;}
 
 };

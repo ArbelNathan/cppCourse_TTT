@@ -17,4 +17,7 @@ using namespace std;
 		this->set(c);
 		return *this;
 	}
+	Cell& Cell::operator= (const Cell& c){
+	this->value=c.value;		
+	}
 			

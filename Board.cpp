@@ -21,9 +21,8 @@ using namespace std;
         			os<<n.gameTable[i][j].get();
         			
         		} 
-        	os<<"\n";
+        	os<<endl;
         	}
-        	os<<"\n";
         	return os;
         }
         

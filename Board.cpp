@@ -44,11 +44,11 @@ using namespace std;
     			if(this->size!=b.size){
     			    this->resize(b.size);
     			}
-    			    for (int i = 0; i < this->size; i++) {
-        		    	for (int j = 0; j < this->size; j++) {
-    				    		(*this)[{i,j}]=b.gameTable[i][j];
-        		    	}
-    		    	}
+    	        for (int i = 0; i < this->size; i++) {
+                    for (int j = 0; j < this->size; j++) {
+    			        (*this)[{i,j}]=b.gameTable[i][j];
+        	        }
+                }
     			
     			return *this;
     		
@@ -65,6 +65,7 @@ using namespace std;
 
 	//destructor
 	Board::~Board(){
+	   
 		delete [] gameTable;
 
 	}

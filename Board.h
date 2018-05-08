@@ -31,11 +31,10 @@ class Board{
                 gameTable[i] = new Cell[size];
             }
             for (int i = 0; i < this->size; i++) {
-        			for (int j = 0; j < this->size; j++) {
-        				if(b.gameTable[i][j].get()!='.')
-    						gameTable[i][j]=b.gameTable[i][j].get();
-        			}
-    			}
+                for (int j = 0; j < this->size; j++) {
+                    (*this)[{i,j}]=b.gameTable[i][j];
+                }
+            }
         }
         
         

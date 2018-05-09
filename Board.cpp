@@ -4,7 +4,30 @@
 #include <list>
 using namespace std;
 #include "Board.h"
-
+	
+	Board::Board(){size=0;}
+    Board::Board(int a){
+        size=a;
+        gameTable = new Cell*[size];
+        for(int i = 0; i < size; ++i) {
+           gameTable[i] = new Cell[size];
+        }
+    }
+    Board::Board(const Board& b){
+        size=b.size;
+        gameTable = new Cell*[size];
+        for(int i = 0; i < size; ++i) {
+            gameTable[i] = new Cell[size];
+        }
+        for (int i = 0; i < this->size; i++) {
+            for (int j = 0; j < this->size; j++) {
+                (*this)[{i,j}]=b.gameTable[i][j];
+            }
+        }
+    }
+	
+	
+	
 		//Board[{}] return Cell
 	Cell& Board::operator[] (list<int> l){
 			int x=l.front();
@@ -62,6 +85,11 @@ using namespace std;
                
             }
     }
+    
+    void Board::setSize(int size){this->size = size;}
+    int Board::getSize(){return this->size;}
+    void Board::setGameTable(Cell** g){*this->gameTable = *g;}
+    Cell** Board::getGameTable(){return this->gameTable;}
 
 	//destructor
 	Board::~Board(){

@@ -16,26 +16,9 @@ class Board{
     
     public:
     
-        Board(){size=0;}
-        Board(int a){
-            size=a;
-            gameTable = new Cell*[size];
-            for(int i = 0; i < size; ++i) {
-               gameTable[i] = new Cell[size];
-            }
-        }
-        Board(const Board& b){
-            size=b.size;
-            gameTable = new Cell*[size];
-            for(int i = 0; i < size; ++i) {
-                gameTable[i] = new Cell[size];
-            }
-            for (int i = 0; i < this->size; i++) {
-                for (int j = 0; j < this->size; j++) {
-                    (*this)[{i,j}]=b.gameTable[i][j];
-                }
-            }
-        }
+        Board();
+        Board(int a);
+        Board(const Board& b);
         
         
         Cell& operator[] (list<int> l);//Board[{}] return Cell
@@ -44,11 +27,11 @@ class Board{
         
     	Board& operator= (char a);//Board='.'
     	Board& operator= (const Board& b);//Board=Board
-	void setSize(int size){this->size = size;}
-	int getSize(){return this->size;}
-	void setGameTable(Cell** g){*this->gameTable = *g;  }
-	Cell** getGameTable(){return this->gameTable;}
-    void resize(int size);
+        void setSize(int size);
+        int getSize();
+        void setGameTable(Cell** g);
+        Cell** getGameTable();
+        void resize(int size);
     	~Board();//destructor
         
    

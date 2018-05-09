@@ -4,7 +4,7 @@
 #include "Cell.h"
 using namespace std;
 
-	char Cell::get(){
+	char Cell::get()const{
 		return this->value;
 	}
 	void Cell::set(char c){

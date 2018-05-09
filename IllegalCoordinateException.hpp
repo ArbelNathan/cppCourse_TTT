@@ -1,3 +1,4 @@
+#ifndef tic_tac_toe
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -9,8 +10,8 @@ class IllegalCoordinateException{
 	private:
 		int corX, corY;
 	public:
-		IllegalCoordinateException(int x, int y){ this->corX = x; this->corY = y;}
-		string theCoordinate() const{ 
-			return to_string(corX) + "," + to_string(corY);
-		}
+		IllegalCoordinateException(int x, int y);
+		string theCoordinate() const;
 }; 
+
+#endif

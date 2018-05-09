@@ -1,3 +1,4 @@
+#ifndef tic_tac_toe
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -9,9 +10,8 @@ class IllegalCharException{
 	private:
 	 	char c;
 	public:
-		IllegalCharException(char a){c = a;}
-		
-		char theChar() const{ 
-			return c;
-		}
+		IllegalCharException(char a);
+		char theChar() const;
 }; 
+
+#endif

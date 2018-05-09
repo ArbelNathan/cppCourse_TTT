@@ -1,4 +1,4 @@
-
+#ifndef tic_tac_toe
 #include <iostream>
 #include <string>
 #include <stdio.h>
@@ -21,3 +21,4 @@ class Cell{
 
 };
 
+#endif

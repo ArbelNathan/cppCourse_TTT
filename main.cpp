@@ -6,20 +6,20 @@
 
 void printResults(const TicTacToe& game) {
 	cout << endl << "The final board is " << endl << game.board();
-	cout << "And the winner is " << game.winner().name() 
-	     << ", playing as " << game.winner().getChar() << "!" << endl;
+	/*cout << "And the winner is " << game.winner().name() 
+	     << ", playing as " << game.winner().getChar() << "!" << endl;*/
 }
 
 void playAndPrintResults(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
-	game.play(xPlayer, oPlayer);
+	//game.play(xPlayer, oPlayer);
 	printResults(game);
 }
-
+/*
 void playAndPrintWinner(TicTacToe& game, Player& xPlayer, Player& oPlayer) {
 	game.play(xPlayer, oPlayer);
 	cout << "The winner is " << game.winner().name() 
 	     << ", playing as " << game.winner().getChar() << "!" << endl;
-}
+}*/
 
 
 int main() {
@@ -38,7 +38,7 @@ int main() {
 		O...
     	And the winner is XYPlayer, playing as X!
 	*/
-
+/*
 	playAndPrintResults(game, player2, player1);  
 	/*
 		The final board is 
@@ -49,7 +49,7 @@ int main() {
         And the winner is YXPlayer, playing as X!
 	*/
 
-	playAndPrintResults(game, player1, player3);  
+	/*playAndPrintResults(game, player1, player3);  
 	/*
 		The final board is 
 		X...
@@ -60,7 +60,7 @@ int main() {
 	*/
 
 
-	playAndPrintResults(game, player3, player1);  
+	/*playAndPrintResults(game, player3, player1);  
 	/*
 		The final board is 
 		XO..
@@ -70,7 +70,7 @@ int main() {
         And the winner is XYPlayer, playing as O!
 	*/
 
-	playAndPrintResults(game, player2, player4);  
+	/*playAndPrintResults(game, player2, player4);  
 	/*
 		The final board is 
 		X...
@@ -80,7 +80,7 @@ int main() {
 		And the winner is YXPlayer, playing as X!
 	*/
 
-	playAndPrintResults(game, player4, player2);  
+	/*playAndPrintResults(game, player4, player2);  
 	/*
 		The final board is 
 		X...
@@ -91,7 +91,7 @@ int main() {
 	*/
 
 
-	Champion champion;
+	/*Champion champion;
 	playAndPrintWinner(game, champion, player1);
 		// The winner is <your name>, playing as X!
 	playAndPrintWinner(game, player1, champion);
@@ -108,7 +108,7 @@ int main() {
 		// The winner is <your name>, playing as X!
 	playAndPrintWinner(game, player4, champion);
 		// The winner is <your name>, playing as O!
-
+*/
 	return 0;
 }
 

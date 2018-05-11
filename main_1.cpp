@@ -11,9 +11,7 @@ int main() {
 	....
 	*/
 	board1[{1,1}]='X';
-	//cout << "1" << endl;
 	board1[{1,2}]='O';
-//cout << "2" << endl;
 	cout << board1 << endl;  /* Shows the following board:
 
 	....
@@ -21,7 +19,6 @@ int main() {
 	....
 	....
 	*/
-//cout << "3" << endl;
 	try {
 		board1[{3,4}]='O';   // This should raise an exception
 	} catch (const IllegalCoordinateException& ex) {

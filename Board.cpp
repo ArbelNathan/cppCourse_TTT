@@ -6,13 +6,14 @@ using namespace std;
 #include "Board.h"
 	
 	Board::Board(){size=0;}
-    Board::Board(int a){
+     Board::Board(int a){
         size=a;
         gameTable = new Cell*[size];
         for(int i = 0; i < size; ++i) {
            gameTable[i] = new Cell[size];
         }
     }
+
     Board::Board(const Board& b){
         size=b.size;
         gameTable = new Cell*[size];
@@ -26,23 +27,20 @@ using namespace std;
         }
     }
 	
-	
-	
 		//Board[{}] return Cell
 	Cell& Board::operator[] (list<int> l){
-			int x=l.front();
-			int y=l.back();
-			if(x > this->size-1 || y > this->size-1){
-				throw IllegalCoordinateException(x,y);
-			}
-			return this->gameTable[x][y];
+		int x=l.front();
+		int y=l.back();
+		if(x > this->size-1 || y > this->size-1){
+			throw IllegalCoordinateException(x,y);
 		}
+		return this->gameTable[x][y];
+	}
         
         ostream& operator<< (ostream& os, const Board& n){
         	for (int i = 0; i < n.size; i++) {
         		for (int j = 0; j < n.size; j++) {
         			os<<n.gameTable[i][j].get();
-        			
         		} 
         	os<<endl;
         	}

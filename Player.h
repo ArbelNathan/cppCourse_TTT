@@ -1,6 +1,6 @@
 using namespace std;
 #pragma once
-#include "Coordinate.h"
+using Coordinate = Cell;
 
 class Player{
 	public:

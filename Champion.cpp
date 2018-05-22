@@ -39,7 +39,7 @@ const Coordinate Champion::play(const Board& board) {
 	}
 }
 
-private void Champion::getRival(string name, bool first){
+void Champion::getRival(string name, bool first){
 	this->rival=name;
 	this->meFirst=first;
 }

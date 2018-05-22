@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <string>
+#include "DummyPlayers.h"
 using namespace std;
 #pragma once
 
 
 class Champion: public Player{
+	private:
+		string rival;
+		bool meFirst;
 	public:
 		const string name() const override { return "Inna and Arbel"; }
 		const Coordinate play(const Board& board) override;
-		private const Coordinate xyplayer(const Board& board); 
-		private const Coordinate yxplayer(const Board& board);
-		private const Coordinate IllegalPlayer(const Board& board);
-		private const Coordinate ExceptionPlayer(const Board& board);
+		
+		private void getRival(string name, bool first);
 };

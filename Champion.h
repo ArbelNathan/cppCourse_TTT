@@ -10,7 +10,7 @@ class Champion: public Player{
 		string rival;
 		bool meFirst;
 	public:
-		const string name() const override { return "Inna and Arbel"; }
+		const string name() const override { return "Inna , Arbel and Anna"; }
 		const Coordinate play(const Board& board) override;
 		
 		private void getRival(string name, bool first);

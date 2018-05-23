@@ -1,4 +1,4 @@
-#include "Champion.h"
+#include "DummyPlayers.h"
 
 const Coordinate Champion::play(const Board& board) {
 	if(rival=="XYPlayer"){

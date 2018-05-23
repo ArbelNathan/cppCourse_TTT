@@ -21,7 +21,7 @@ class TicTacToe{
         TicTacToe(int size)
         {
         	sizeBoard = size; 
-        	game = new Board{size};
+        	game = new Board(size);
         }
         
         

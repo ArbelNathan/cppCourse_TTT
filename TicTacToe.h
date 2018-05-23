@@ -26,7 +26,7 @@ class TicTacToe{
         }
         
         
-		Board board() const;
+		Board board();
 		Player& winner();
 		void play(Player& xPlayer, Player& oPlayer);
 		bool turn(char player, Player& xPlayer, Player& oPlayer);

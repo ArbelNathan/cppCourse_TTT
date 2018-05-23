@@ -114,11 +114,13 @@ Player& TicTacToe::winner() const
 
 void TicTacToe::Rival(Player& xPlayer, Player& oPlayer){
     if (xPlayer.name()=="Inna , Arbel and Anna"){
-       Champion::((Champion)xPlayer).getRival(oPlayer.name(), false);
+	    Champion c= (Champion) xPlayer;
+       c.getRival(oPlayer.name(), false);
         
     }
     else if (oPlayer.name()=="Inna , Arbel and Anna"){
-        Champion::((Champion)oPlayer).getRival(xPlayer.name(), false);
+	    Champion c= (Champion) oPlayer;
+        c.getRival(xPlayer.name(), false);
     }
     
 }	

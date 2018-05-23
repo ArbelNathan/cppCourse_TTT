@@ -24,7 +24,7 @@
     }
 	
 		//Board[{}] return Cell
-	Cell& Board::operator[] (list<int> l) {
+	Cell& Board::operator[] (list<int> l) const {
 		int x=l.front();
 		int y=l.back();
 		if(x > this->Size-1 || y > this->Size-1){

@@ -6,8 +6,7 @@ using namespace std;
 class Player{
 	private:
 		char myChar='X';
-	public:
-		//Player();	
+	public:	
 		virtual const string name() const{return "";}
 		virtual const Coordinate play(const Board& board){return {0,0};}
 		

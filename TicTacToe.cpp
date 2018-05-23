@@ -4,14 +4,14 @@
 using namespace std;
 
 
-Board TicTacToe::board() const
+Board TicTacToe::board() const 
 {
     return game;
 }
 
-Player& TicTacToe::winner()
+Player& TicTacToe::winner() const
 {
-    game = '.';
+   // game = '.';
     return *Winner;
 }
 

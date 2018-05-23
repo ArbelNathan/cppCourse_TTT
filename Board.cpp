@@ -89,7 +89,7 @@
     }
     
     void Board::setSize(int Size){this->Size = Size;}
-    int Board::size(){return this->Size;}
+    int Board::size() const {return this->Size;}
     void Board::setGameTable(Cell** g){*this->gameTable = *g;}
     Cell** Board::getGameTable(){return this->gameTable;}
 

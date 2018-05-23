@@ -9,7 +9,7 @@ class Player{
 	public:
 		//Player();	
 		virtual const string name() const{return "";}
-		virtual const Coordinate play(const Board& board){return NULL;}
+		virtual const Coordinate play(const Board& board){return return {0,0};}
 		
 		char getChar(){
 			return myChar;

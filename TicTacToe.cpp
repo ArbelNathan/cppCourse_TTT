@@ -5,9 +5,15 @@ using namespace std;
 #pragma once
 
 
-Board TicTacToe::board() 
+Board TicTacToe::board() const
 {
     return game;
+}
+
+Player& TicTacToe::winner() const
+{
+    game = '.';
+    return *Winner;
 }
 
 	
@@ -36,7 +42,7 @@ Board TicTacToe::board()
         {
             Coordinate c;
             player == 'X' ? c = xPlayer.play(board()) : c = oPlayer.play(board());
-            if (game[c] != '.')
+            if (game[{c}] != '.')
                 throw std::string("Illegal Player");
             game[{c}] = player;
             if (GameWinned(board(), c, player))

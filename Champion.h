@@ -13,7 +13,7 @@ class Champion: public Player{
 		bool meFirst;
 	
 	public:
-		const string name() const  { return "Inna , Arbel and Anna"; }
-		const Coordinate play(const Board& board) ;
+		const string name() const override { return "Inna , Arbel and Anna"; }
+		const Coordinate play(const Board& board) override;
 		void getRival(string name, bool first);
 };

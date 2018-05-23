@@ -10,13 +10,13 @@
 */
 class XYPlayer: public Player {
 public:
-	const string name() const  { return "XYPlayer"; }
+	const string name() const override { return "XYPlayer"; }
 
 	/**
 	 * Selects a single place to put my symbol, given the current board.
 	 * Defines the strategy of the player.
 	 */
-	const Coordinate play(const Board& board) ;
+	const Coordinate play(const Board& board) override;
 };
 
 
@@ -26,8 +26,8 @@ public:
 */
 class YXPlayer: public Player {
 public:
-	const string name() const { return "YXPlayer"; }
-	const Coordinate play(const Board& board);
+	const string name() const override { return "YXPlayer"; }
+	const Coordinate play(const Board& board) override;
 };
 
 
@@ -38,8 +38,8 @@ public:
 */
 class IllegalPlayer: public Player {
 public:
-	const string name() const  { return "YXPlayer"; }
-	const Coordinate play(const Board& board);
+	const string name() const override { return "YXPlayer"; }
+	const Coordinate play(const Board& board) override;
 };
 
 
@@ -49,6 +49,6 @@ public:
 */
 class ExceptionPlayer: public Player {
 public:
-	const string name() const  { return "YXPlayer"; }
-	const Coordinate play(const Board& board);
+	const string name() const override { return "YXPlayer"; }
+	const Coordinate play(const Board& board) override;
 };

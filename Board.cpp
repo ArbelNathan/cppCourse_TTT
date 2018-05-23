@@ -32,14 +32,14 @@
 		}
 		return this->gameTable[x][y];
 	}
-		Cell& Board::operator[] (Coordinate& c) const{
+	/*	Cell& Board::operator[] (Coordinate& c) const{
 	    int x=c.getRow();
 		int y=c.getCol();
 		if(x > this->Size-1 || y > this->Size-1){
 			throw IllegalCoordinateException(x,y);
 		}
 		return this->gameTable[x][y];
-	}
+	}*/
         
         ostream& operator<< (ostream& os, const Board& n){
         	for (int i = 0; i < n.Size; i++) {

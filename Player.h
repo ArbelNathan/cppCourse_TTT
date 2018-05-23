@@ -5,20 +5,20 @@ using namespace std;
 
 class Player{
 	public:
-	char sign;
+	char myChar;
 	
 		Player(){
-			sign='X';
+			myChar='X';
 		}
 		
 		virtual const string name() const;
 		virtual const Coordinate play(const Board& board);
 		
 	char getChar(){
-		return sign;
+		return myChar;
 		}
 	
         void setChar(char c){
-		sign=c;
+		myChar=c;
 		}
 };

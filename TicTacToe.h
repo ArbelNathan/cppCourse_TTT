@@ -8,34 +8,12 @@ using namespace std;
 class TicTacToe{
 	private:
 		int sizeBoard;
-		Board game;
-        Player* Winner;
-        
-        
+		Board* game = new Board();
 	public:
-	//constructors
-		TicTacToe(){
-			sizeBoard = 0;
-		}
-	
-        TicTacToe(int size)
-        {
-        	sizeBoard = size; 
-        	game = new Board(size);
-        }
-        
-        
-		Board board();
-		void play(Player& xPlayer, Player& oPlayer);
-		bool turn(char player, Player& xPlayer, Player& oPlayer);
-		bool GameWinned(Board board, Coordinate c, char player);
-		bool isPlayer(Coordinate c, char player);
+		TicTacToe(){sizeBoard = 0;}
+		TicTacToe(int size){sizeBoard = size; game = new Board(size);}
+		void play(const Player& firstPlayer,const Player& secondPlayer);	
+		const Board& board(const Board& b);
+		Player& winner();
 
-};
-
-
-
- struct Count{
-	int sum;
-	bool flag;
 };

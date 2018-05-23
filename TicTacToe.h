@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Board.hpp"
+#include "Board.h"
 #include "DummyPlayers.h"
 #include "Player.h"
 #include "Coordinate.h"

@@ -23,10 +23,14 @@ Player& TicTacToe::winner() const
     xPlayer.setChar('X');
     oPlayer.setChar('O');
     if(xPlayer.name()=="Inna , Arbel and Anna"){
-        xPlayer.Champion::getRival(oPlayer.name(),1);
+        Champion* c =dynamic_cast<Champion*>(xPlayer);
+        c.getRival(oPlayer.name(),1);
+        xPlayer=c;
     }
     else if(oPlayer.name()=="Inna , Arbel and Anna"){
-        oPlayer.Champion::getRival(xPlayer.name(),0);
+        Champion* c =dynamic_cast<Champion*>(oPlayer);
+        c.getRival(xPlayer.name(),0);
+        oPlayer=c;
     }
     while (count < TableSize)
     {

@@ -4,11 +4,11 @@ using namespace std;
 
 class Coordinate{
 	private:
-		uint row,col;
+		int row,col;
 	public:
 		Coordinate(){row=0; col=0;}
-        	Coordinate(uint a, uint b){ row = a; col = b; }
-		uint getRow(){return row;}
-		uint getCol(){return col;}
+        	Coordinate(int a, int b){ row = a; col = b; }
+		int getRow(){return row;}
+		int getCol(){return col;}
 
 };

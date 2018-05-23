@@ -11,7 +11,7 @@ Board TicTacToe::board() const
 
 Player& TicTacToe::winner() const
 {
-   // game = '.';
+   
     return *Winner;
 }
 
@@ -22,6 +22,12 @@ Player& TicTacToe::winner() const
     size_t TableSize = sizeBoard * sizeBoard;
     xPlayer.setChar('X');
     oPlayer.setChar('O');
+    if(xPlayer.name()=="Inna , Arbel and Anna"){
+        xPlayer::Champion.getRival(oPlayer.name(),1);
+    }
+    else{
+        oPlayer::Champion.getRival(xPlayer.name(),0);
+    }
     while (count < TableSize)
     {
         if (turn('X', xPlayer, oPlayer))  // X won.

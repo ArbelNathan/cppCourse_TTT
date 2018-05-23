@@ -22,7 +22,7 @@ class Board{
         Board(const Board& b);
         
         
-        Cell& operator[] (list<int> l);//Board[{}] return Cell
+        Cell& operator[] (list<int> l) const;//Board[{}] return Cell
       //  Cell& operator[] (Coordinate& c) const;//Board[{}] return Cell
         friend ostream& operator<< (ostream& os, const Board& n);
         

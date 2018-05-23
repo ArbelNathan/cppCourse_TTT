@@ -112,8 +112,16 @@ Player& TicTacToe::winner() const
     return false;
 }
 
-	
-	
+void TicTacToe::Rival(Player& xPlayer, Player& oPlayer){
+    if (typeid(xPlayer)== typeid(Champion)){
+        (Champion)xPlayer.getRival(oPlayer.name(), false)
+        
+    }
+    else if (typeid(oPlayer)== typeid(Champion)){
+        (Champion)xPlayer.getRival(xPlayer.name(), false)
+    }
+    
+}	
 	
 	
 	

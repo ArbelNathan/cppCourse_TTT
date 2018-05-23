@@ -2,18 +2,36 @@
 #include "Board.h"
 #include "DummyPlayers.h"
 #include "Player.h"
+#include "Coordinate.h"
 using namespace std;
 #pragma once
 
 class TicTacToe{
 	private:
 		int sizeBoard;
-		Board* game = new Board();
+		Board game;
+                Player* Winner;
+        
+        
 	public:
-		TicTacToe(){sizeBoard = 0;}
-		TicTacToe(int size){sizeBoard = size; game = new Board(size);}
-		void play(const Player& firstPlayer,const Player& secondPlayer);	
-		const Board& board(const Board& b);
+	//constructors
+		TicTacToe(){
+			sizeBoard = 0;
+		}
+	
+        TicTacToe(int size)
+        {
+        	sizeBoard = size; 
+        	game = new Board(size);
+        }
+        
+        
+		Board board();
 		Player& winner();
+		void play(Player& xPlayer, Player& oPlayer);
+		bool turn(char player, Player& xPlayer, Player& oPlayer);
+		bool GameWinned(Board board, Coordinate c, char player);
+		bool isPlayer(Coordinate c, char player);
 
 };
+

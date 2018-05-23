@@ -2,7 +2,6 @@
 #include <iostream>
 #include "TicTacToe.h"
 using namespace std;
-#pragma once
 
 
 Board TicTacToe::board() const
@@ -10,7 +9,7 @@ Board TicTacToe::board() const
     return game;
 }
 
-Player& TicTacToe::winner() const
+Player& TicTacToe::winner()
 {
     game = '.';
     return *Winner;
@@ -42,9 +41,9 @@ Player& TicTacToe::winner() const
         {
             Coordinate c;
             player == 'X' ? c = xPlayer.play(board()) : c = oPlayer.play(board());
-            if (game[{c}] != '.')
+            if (game[c] != '.')
                 throw std::string("Illegal Player");
-            game[{c}] = player;
+            game[c] = player;
             if (GameWinned(board(), c, player))
             {
                 player == 'X' ? Winner = &xPlayer : Winner = &oPlayer;
@@ -69,7 +68,7 @@ Player& TicTacToe::winner() const
 	 Count diagonalLeftUp = {1, true};
 	 Count diagonalRightDown = {0, true};
 	 Count diagonalRightUp = {0, true};
-	 for (int i = 1; i < board.getSize(); i++) {
+	 for (int i = 1; i < board.size(); i++) {
         if (isPlayer({c.getRow(), c.getCol() + i}, player) && up.flag)
             up.sum++;
         else
@@ -107,7 +106,7 @@ Player& TicTacToe::winner() const
 	int sumSide = right.sum + left.sum;
 	int sumFirstDiagonal = diagonalLeftDown.sum + diagonalRightUp.sum;
 	int sumSecondDiagonal = diagonalLeftUp.sum + diagonalRightDown.sum;
-     if (sumHigh  == board.getSize() || sumSide == board.getSize() || sumFirstDiagonal == board.getSize() || sumSecondDiagonal == board.getSize()) {
+     if (sumHigh  == board.size() || sumSide == board.size() || sumFirstDiagonal == board.size() || sumSecondDiagonal == board.size()) {
          return true;
      }
     return false;
@@ -121,7 +120,7 @@ Player& TicTacToe::winner() const
 bool TicTacToe::isPlayer(Coordinate c, char player) {
     if (c.getRow() < 0 || c.getRow() >= sizeBoard || c.getCol()< 0 || c.getCol() >= sizeBoard)
         return false;
-    char cell = game[{c}];
+    char cell = game[c].get();
 	if (player == cell)
 		return true;
 	return false;

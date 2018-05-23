@@ -23,4 +23,5 @@ using namespace std;
 	
 	bool Cell::operator ==(char c) const {if(value==c)return true; return false;}
 	bool Cell::operator ==(const Cell& c) const {if(this->value==c.get())return true; return false;}
-			
+	bool Cell::operator !=(char c) const {if(!(value==c))return true; return false;}
+	bool Cell::operator !=(const Cell& c) const {if(!(this->value==c.get()))return true; return false;}		

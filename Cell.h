@@ -19,6 +19,8 @@ class Cell{
 		Cell& operator= (const Cell& c);
 		bool operator ==(char c) const;
 		bool operator ==(const Cell& c) const;
+		bool operator !=(char c) const;
+		bool operator !=(const Cell& c) const;
 };
 
 #endif

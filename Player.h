@@ -8,8 +8,8 @@ class Player{
 		char myChar='X';
 	public:
 		//Player();	
-		virtual const string name() const;
-		virtual const Coordinate play(const Board& board);
+		virtual const string name() const{return ""}
+		virtual const Coordinate play(const Board& board){return null}
 		
 		char getChar(){
 			return myChar;

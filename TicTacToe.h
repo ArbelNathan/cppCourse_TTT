@@ -10,7 +10,7 @@ class TicTacToe{
 	private:
 		int sizeBoard;
 		Board game;
-                Player* Winner;
+        Player* Winner;
         
         
 	public:
@@ -22,7 +22,7 @@ class TicTacToe{
         TicTacToe(int size)
         {
         	sizeBoard = size; 
-        	game = new Board(size);
+        	game.resize(size);
         }
         
         
@@ -35,3 +35,9 @@ class TicTacToe{
 
 };
 
+
+
+ struct Count{
+	int sum;
+	bool flag;
+};

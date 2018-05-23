@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string>
-#include <string.h>
 #include "DummyPlayers.h"
 #include "Coordinate.h"
 using namespace std;

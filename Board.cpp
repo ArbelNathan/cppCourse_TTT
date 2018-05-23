@@ -32,8 +32,9 @@
 		}
 		return this->gameTable[x][y];
 	}
-		Cell& Board::operator[] (Coordinate& c) const{
-	    int x=c.getRow();
+
+	Cell& Board::operator[] (Coordinate& c) const{
+	    	int x=c.getRow();
 		int y=c.getCol();
 		if(x > this->Size-1 || y > this->Size-1){
 			throw IllegalCoordinateException(x,y);

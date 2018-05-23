@@ -7,7 +7,7 @@ using namespace std;
 #pragma once
 
 
-class Champion: public Player{
+class Champion: virtual public Player{
 	private:
 		string rival;
 		bool meFirst;

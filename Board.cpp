@@ -1,5 +1,5 @@
 
-#include "Board.h"
+#include "Board.hpp"
 	
 	Board::Board(){Size=0;}
      Board::Board(int a){

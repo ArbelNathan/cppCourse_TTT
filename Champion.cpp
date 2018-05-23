@@ -1,7 +1,7 @@
 #include "Champion.h"
 
 const Coordinate Champion::play(const Board& board) {
-	if(strcmp(rival,"XYPlayer")){
+	if(rival=="XYPlayer"){
 		if(meFirst){
 			YXPlayer player;
 			return player.play(board);
@@ -16,7 +16,7 @@ const Coordinate Champion::play(const Board& board) {
 			}
 		}
 	}
-	if(strcmp(rival,"YXPlayer")){
+	if(rival=="YXPlayer"){
 		if(meFirst){
 			XYPlayer player;
 			return player.play(board);

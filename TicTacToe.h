@@ -31,6 +31,7 @@ class TicTacToe{
 		void play(Player& xPlayer, Player& oPlayer);
 		bool turn(char player, Player& xPlayer, Player& oPlayer);
 		bool GameWinned(Board board, Coordinate c, char player);
+	        void TicTacToe::Rival(Player& xPlayer, Player& oPlayer);
 		bool isPlayer(Coordinate c, char player);
 
 };

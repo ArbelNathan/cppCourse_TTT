@@ -1,12 +1,12 @@
-using namespace std;
 #include "Coordinate.h"
 #include "Board.h"
+using namespace std;
 #pragma once
 
 class Player{
+	private:
+		char myChar;
 	public:
-	char myChar;
-	
 		Player(){
 			myChar='X';
 		}
@@ -14,11 +14,11 @@ class Player{
 		virtual const string name() const;
 		virtual const Coordinate play(const Board& board);
 		
-	char getChar(){
-		return myChar;
-		}
-	
-        void setChar(char c){
-		myChar=c;
-		}
+		char getChar(){
+			return myChar;
+			}
+
+		void setChar(char c){
+			myChar=c;
+			}
 };

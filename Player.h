@@ -5,12 +5,9 @@ using namespace std;
 
 class Player{
 	private:
-		char myChar;
+		char myChar='X';
 	public:
-		Player(){
-			myChar='X';
-		}
-		
+			
 		virtual const string name() const;
 		virtual const Coordinate play(const Board& board);
 		

@@ -25,7 +25,7 @@ Player& TicTacToe::winner() const
     if(xPlayer.name()=="Inna , Arbel and Anna"){
         xPlayer::Champion.getRival(oPlayer.name(),1);
     }
-    else{
+    else if(oPlayer.name()=="Inna , Arbel and Anna"){
         oPlayer::Champion.getRival(xPlayer.name(),0);
     }
     while (count < TableSize)
@@ -118,18 +118,6 @@ Player& TicTacToe::winner() const
     return false;
 }
 
-void TicTacToe::Rival(Player& xPlayer, Player& oPlayer){
-    if (xPlayer.name()=="Inna , Arbel and Anna"){
-	    Champion c= (Champion) xPlayer;
-       c.getRival(oPlayer.name(), false);
-        
-    }
-    else if (oPlayer.name()=="Inna , Arbel and Anna"){
-	    Champion c= (Champion) oPlayer;
-        c.getRival(xPlayer.name(), false);
-    }
-    
-}	
 	
 	
 	

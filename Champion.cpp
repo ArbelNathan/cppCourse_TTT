@@ -7,8 +7,8 @@ const Coordinate Champion::play(const Board& board) {
 			return player.play(board);
 		}
 		else{
-			int y=1;
-			for (int x=0; x<board.size(); ++x) {
+			uint y=1;
+			for (uint x=0; x<board.size(); ++x) {
 				Coordinate c{x,y};
 				if (board[c]=='.') {
 					return c;
@@ -22,8 +22,8 @@ const Coordinate Champion::play(const Board& board) {
 			return player.play(board);
 		}
 		else{
-			int x=1;
-			for (int y=0; x<board.size(); ++x) {
+			uint x=1;
+			for (uint y=0; x<board.size(); ++x) {
 				Coordinate c{x,y};
 				if (board[c]=='.') {
 					return c;

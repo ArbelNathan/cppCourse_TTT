@@ -3,6 +3,7 @@
 #include "DummyPlayers.h"
 #include "Player.h"
 #include "Coordinate.h"
+#include "Champion.h"
 using namespace std;
 #pragma once
 

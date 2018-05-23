@@ -23,10 +23,10 @@ Player& TicTacToe::winner() const
     xPlayer.setChar('X');
     oPlayer.setChar('O');
     if(xPlayer.name()=="Inna , Arbel and Anna"){
-        xPlayer::Champion.getRival(oPlayer.name(),1);
+        xPlayer.Champion::getRival(oPlayer.name(),1);
     }
     else if(oPlayer.name()=="Inna , Arbel and Anna"){
-        oPlayer::Champion.getRival(xPlayer.name(),0);
+        oPlayer.Champion::getRival(xPlayer.name(),0);
     }
     while (count < TableSize)
     {

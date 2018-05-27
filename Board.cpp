@@ -51,6 +51,16 @@
         	}
         	return os;
         }
+
+	istream& operator>> (istream& is, const Board& n){
+        	for (int i = 0; i < n.Size; i++) {
+        		for (int j = 0; j < n.Size; j++) {
+        			is>>n.gameTable[i][j].get();
+        		} 
+        	is>>endl;
+        	}
+        	return is;
+        }
         
         //Board='.'
     	Board& Board::operator= (char a){
@@ -80,29 +90,30 @@
     		
     	}
 
-    void Board::resize(int Size){
-        this->Size=Size;
-        this->gameTable = new Cell*[Size];
-            for(int i = 0; i < Size; ++i) {
-               this->gameTable[i] = new Cell[Size];
-               
-            }
-    }
-    
-    void Board::setSize(int Size){this->Size = Size;}
-    int Board::size() const {return this->Size;}
-    void Board::setGameTable(Cell** g){*this->gameTable = *g;}
-    Cell** Board::getGameTable(){return this->gameTable;}
+   	void Board::resize(int Size){
+		this->Size=Size;
+		this->gameTable = new Cell*[Size];
+		    for(int i = 0; i < Size; ++i) {
+		       this->gameTable[i] = new Cell[Size];
+		       
+		    }
+	    }
+
+	string draw(int n){
+
+	}
+	    
+	void Board::setSize(int Size){this->Size = Size;}
+	int Board::size() const {return this->Size;}
+	void Board::setGameTable(Cell** g){*this->gameTable = *g;}
+	Cell** Board::getGameTable(){return this->gameTable;}
 
 	//destructor
 	Board::~Board(){
-	    for (int i = 0; i < this->Size; i++){
-            delete [] gameTable[i];
-        }
-    
-        delete [] gameTable;
-	
-
+		for (int i = 0; i < this->Size; i++){
+		 	delete [] gameTable[i];
+		}
+		delete [] gameTable;
 	}
 	
 

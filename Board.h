@@ -7,6 +7,7 @@
 #include "IllegalCharException.hpp"
 #include "IllegalCoordinateException.hpp"
 #include "Coordinate.h"
+#include <fstream>
 using namespace std;
 #pragma once
 

@@ -57,7 +57,7 @@
         		for (int j = 0; j < n.Size; j++) {
         			is>>n.gameTable[i][j].get();
         		} 
-        	is>>endl;
+        	//is>>endl;
         	}
         	return is;
         }
@@ -99,7 +99,7 @@
 		    }
 	    }
 
-	string draw(int n){
+	string Board::draw(int n){
 
 	}
 	    

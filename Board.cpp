@@ -105,7 +105,7 @@
 		int cellSize = n / this->size();
 		int gridWidth = cellSize / this->size();
 		int redC, greenC, blueC;
-		string fileName = "board"+to_string(this->size())+".ppm";
+		string fileName = "board"+to_string(this->size())+".ppm"; // so it wont override the current file, it makes a new one according to its size
 		ofstream imageFile(fileName, ios::out | ios::binary);
 		imageFile << "P6" << endl << dimx <<" " << dimy << endl << 255 << endl;
 		RGB image[dimx*dimy];
@@ -119,7 +119,7 @@
 		}
 		for (int m = 0; m < this->size(); ++m)  {  // row
 			for (int k = 0; k < this->size(); ++k) { // column
-				char c = this->gameTable[m][k].get();
+				char c = this->gameTable[m][k].get(); // every sign gets different color
 				switch(c){
 					case '.':
 						redC=greenC=blueC=0;
@@ -137,6 +137,7 @@
 					default:
 						cout << "ERROR, bad input" << endl;
 				}
+				//****ארבל זה בשבילך , איפה שנתקעתי: אמור לעשות את הצורות כאן ****
 				if(c == '.' || c == 'X'){
 					int left=k*cellSize+gridWidth,right=k*cellSize+cellSize-gridWidth-1;
 					int row=0;

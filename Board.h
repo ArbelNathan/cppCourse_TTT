@@ -2,11 +2,13 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <math.h>
+#include <algorithm>
 #include <list>
 #include "Cell.h"
 #include "IllegalCharException.hpp"
 #include "IllegalCoordinateException.hpp"
-#include "Coordinate.h"
+//#include "Coordinate.h"
 #include <fstream>
 using namespace std;
 #pragma once
@@ -24,7 +26,7 @@ class Board{
         
         
         Cell& operator[] (list<int> l) const ;//Board[{}] return Cell
-        Cell& operator[] (Coordinate& c) const;//Board[{}] return Cell
+       // Cell& operator[] (Coordinate& c) const;//Board[{}] return Cell
         friend ostream& operator<< (ostream& os, const Board& n);
         friend istream& operator>> (istream& is, const Board& n);
         
@@ -41,4 +43,13 @@ class Board{
    
 };
 
+	
+struct RGB {
+  uint8_t red, green, blue;
+public:
+  RGB() {}
+  RGB(uint8_t red, uint8_t green, uint8_t blue): red(red), green(green), blue(blue) {}
+};
+
 #endif
+

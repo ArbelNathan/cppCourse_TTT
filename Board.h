@@ -37,7 +37,7 @@ class Board{
         void setGameTable(Cell** g);
         Cell** getGameTable();
         void resize(int Size);
-	string draw(int n);
+	string draw(int n); //converts txt drawing to image
     	~Board();//destructor
         
    

@@ -105,72 +105,75 @@
 		int cellSize = n / this->size();
 		int gridWidth = cellSize / this->size();
 		int redC, greenC, blueC;
-		string fileName = "board"+to_string(this->size())+".ppm"; // so it wont override the current file, it makes a new one according to its size
+		string fileName = "board"+to_string(this->size())+".ppm";
 		ofstream imageFile(fileName, ios::out | ios::binary);
 		imageFile << "P6" << endl << dimx <<" " << dimy << endl << 255 << endl;
 		RGB image[dimx*dimy];
 		//bg
 		for (int j = 0; j < dimy; ++j)  {  // row
 		  for (int i = 0; i < dimx; ++i) { // column
-		     image[dimx*j+i].red = 255;
-		     image[dimx*j+i].green = 255;
-		     image[dimx*j+i].blue = 255;
+		     image[dimx*j+i].red = 234;
+		     image[dimx*j+i].green = 233;
+		     image[dimx*j+i].blue = 222;
 		  }
 		}
 		for (int m = 0; m < this->size(); ++m)  {  // row
 			for (int k = 0; k < this->size(); ++k) { // column
-				char c = this->gameTable[m][k].get(); // every sign gets different color
+				char c = this->gameTable[m][k].get();
 				switch(c){
 					case '.':
 						redC=greenC=blueC=0;
 						break;
 					case 'X':
-						redC=200;
-					    	greenC=255;
-					    	blueC=255;
+						redC=234;
+					    	greenC=0;
+					    	blueC=59;
 						break;
 					case 'O':
-					    	redC=255;
-					   	greenC=100;
-					   	blueC=255;
+					    	redC=0;
+					   	greenC=163;
+					   	blueC=82;
 						break;
 					default:
 						cout << "ERROR, bad input" << endl;
 				}
-				//****ארבל זה בשבילך , איפה שנתקעתי: אמור לעשות את הצורות כאן ****
-				if(c == '.' || c == 'X'){
+				if(c == '.'){ //draws instead of dot a square
+					for (int i = m*cellSize+gridWidth; i < m*cellSize+cellSize-gridWidth; ++i)  {  // row
+						for (int j = k*cellSize+gridWidth; j < k*cellSize+cellSize-gridWidth; ++j) { // column
+						    image[dimx*i+j].red = redC;
+						    image[dimx*i+j].green = greenC;
+						    image[dimx*i+j].blue = blueC;
+						}
+					}
+				}
+				else if(c == 'X'){ //draws X
 					int left=k*cellSize+gridWidth,right=k*cellSize+cellSize-gridWidth-1;
 					int row=0;
 					for (int i = m*cellSize+gridWidth; i < m*cellSize+cellSize-gridWidth; ++i)  {  // row
-						for (int j = k*cellSize+gridWidth; j < k*cellSize+cellSize-gridWidth; ++j) { // column
-						    image[dimx*i+j].red = (redC);
-						    image[dimx*i+j].green = (greenC);
-						    image[dimx*i+j].blue = (blueC);
-						}
 						//left
-						image[dimx*i+left+row].red = (redC);
-						image[dimx*i+left+row].green = (greenC);
-						image[dimx*i+left+row].blue = (blueC);
+						image[dimx*i+left+row].red = redC;
+						image[dimx*i+left+row].green = greenC;
+						image[dimx*i+left+row].blue = blueC;
 						//right
-						image[dimx*i+right-row].red = (redC);
-						image[dimx*i+right-row].green = (greenC);
-						image[dimx*i+right-row].blue = (blueC);
+						image[dimx*i+right-row].red = redC;
+						image[dimx*i+right-row].green = greenC;
+						image[dimx*i+right-row].blue = blueC;
 						row++;
 					}
 				}
-				else{ // c == 'O'
-					double  p = m*cellSize+gridWidth, l = k*cellSize+gridWidth , d;
-					double  y = p/2+(p-gridWidth-1)/2, x = l/2+(l-gridWidth-1)/2, radius = cellSize/2-2*gridWidth;
-					for (int j = p; j < m*cellSize+cellSize-gridWidth; ++j)  {  // row
-						for (int i =l; i < k*cellSize+cellSize-gridWidth; ++i) { // column
-							d=pow(x-j,2)+pow(y-i,2);
-							d=sqrt (d);
-							d=abs(d-radius);
-							image[dimx*j+i].red = (redC);
-							image[dimx*j+i].green = (greenC);
-							image[dimx*j+i].blue = (blueC);
-						}
-					}
+				else{ // c == 'O', draws O
+					double varY = m*cellSize+gridWidth, varX = k*cellSize+gridWidth;
+					double y = varY/2+(m*cellSize+cellSize-gridWidth-1)/2, x = varX/2+(k*cellSize+cellSize-gridWidth-1)/2, radius = cellSize/2-2*gridWidth;
+				    	for (int i = varY; i < m*cellSize+cellSize-gridWidth; ++i)  {  // row
+				        	for (int j = varX; j < k*cellSize+cellSize-gridWidth; ++j) { // column
+						    double d=pow(x-j,2)+pow(y-i,2);
+						    d=sqrt (d);
+						    d=abs(d-radius);
+						    image[dimx*i+j].red = redC;
+						    image[dimx*i+j].green = greenC;
+						    image[dimx*i+j].blue = blueC;
+				        	}
+				    	}
 				}
 			}
 		}

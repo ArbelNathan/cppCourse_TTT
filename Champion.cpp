@@ -1,4 +1,4 @@
-#include "Champion.h"
+/*#include "Champion.h"
 
 const Coordinate Champion::play(const Board& board) {
 	if(rival=="XYPlayer"){
@@ -42,4 +42,4 @@ const Coordinate Champion::play(const Board& board) {
 void Champion::getRival(string name, bool first){
 	this->rival=name;
 	this->meFirst=first;
-}
+}*/

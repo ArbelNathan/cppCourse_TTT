@@ -8,7 +8,7 @@
 #include "Cell.h"
 #include "IllegalCharException.hpp"
 #include "IllegalCoordinateException.hpp"
-//#include "Coordinate.h"
+#include "Coordinate.h"
 #include <fstream>
 using namespace std;
 #pragma once
@@ -26,7 +26,7 @@ class Board{
         
         
         Cell& operator[] (list<int> l) const ;//Board[{}] return Cell
-       // Cell& operator[] (Coordinate& c) const;//Board[{}] return Cell
+       Cell& operator[] (Coordinate& c) const;//Board[{}] return Cell
         friend ostream& operator<< (ostream& os, const Board& n);
         friend istream& operator>> (istream& is, Board& n);
         

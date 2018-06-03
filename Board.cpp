@@ -52,12 +52,19 @@
         	return os;
         }
 
-	istream& operator>> (istream& is, const Board& n){
-        	for (int i = 0; i < n.Size; i++) {
-        		for (int j = 0; j < n.Size; j++) {
-        			is>>n.gameTable[i][j].get();
+	istream& operator>> (istream& is,  Board& n){
+        	
+		string line;
+		is>>line;
+		int sizel=line.size();
+		n.resize(sizel);
+		int i=0;
+		while(sizel--!=0){
+        		for (int j = 0; j < line.size(); j++) {
+        			n.gameTable[i][j].set(line[j]);
         		} 
-        	//is>>endl;
+		i++;
+        	is>>line;	
         	}
         	return is;
         }

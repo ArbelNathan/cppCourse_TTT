@@ -28,7 +28,7 @@ class Board{
         Cell& operator[] (list<int> l) const ;//Board[{}] return Cell
        // Cell& operator[] (Coordinate& c) const;//Board[{}] return Cell
         friend ostream& operator<< (ostream& os, const Board& n);
-        friend istream& operator>> (istream& is, const Board& n);
+        friend istream& operator>> (istream& is, Board& n);
         
     	Board& operator= (char a);//Board='.'
     	Board& operator= (const Board& b);//Board=Board

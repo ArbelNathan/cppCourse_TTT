@@ -32,7 +32,7 @@
 		}
 		return this->gameTable[x][y];
 	}
-
+/*
 	Cell& Board::operator[] (Coordinate& c) const{
 	    	int x=c.getRow();
 		int y=c.getCol();
@@ -41,7 +41,7 @@
 		}
 		return this->gameTable[x][y];
 	}
-        
+  */      
         ostream& operator<< (ostream& os, const Board& n){
         	for (int i = 0; i < n.Size; i++) {
         		for (int j = 0; j < n.Size; j++) {
@@ -110,7 +110,7 @@
 	string Board::draw(int n){
 		const int dimx = n, dimy = n;
 		int cellSize = n / this->size();
-		int gridWidth = cellSize / this->size();
+		int gridWidth = cellSize /20;
 		int redC, greenC, blueC;
 		string fileName = "board"+to_string(this->size())+".ppm";
 		ofstream imageFile(fileName, ios::out | ios::binary);
@@ -119,18 +119,15 @@
 		//bg
 		for (int j = 0; j < dimy; ++j)  {  // row
 		  for (int i = 0; i < dimx; ++i) { // column
-		     image[dimx*j+i].red = 234;
-		     image[dimx*j+i].green = 233;
-		     image[dimx*j+i].blue = 222;
+		     image[dimx*j+i].red = 0;
+		     image[dimx*j+i].green = 0;
+		     image[dimx*j+i].blue = 0;
 		  }
 		}
 		for (int m = 0; m < this->size(); ++m)  {  // row
 			for (int k = 0; k < this->size(); ++k) { // column
 				char c = this->gameTable[m][k].get();
 				switch(c){
-					case '.':
-						redC=greenC=blueC=0;
-						break;
 					case 'X':
 						redC=234;
 					    	greenC=0;
@@ -141,49 +138,44 @@
 					   	greenC=163;
 					   	blueC=82;
 						break;
-					default:
-						cout << "ERROR, bad input" << endl;
 				}
 				if(c == '.'){ //draws instead of dot a square
-					for (int i = m*cellSize+gridWidth; i < m*cellSize+cellSize-gridWidth; ++i)  {  // row
-						for (int j = k*cellSize+gridWidth; j < k*cellSize+cellSize-gridWidth; ++j) { // column
-						    image[dimx*i+j].red = redC;
-						    image[dimx*i+j].green = greenC;
-						    image[dimx*i+j].blue = blueC;
+					
+				}
+				else if(c == 'X'){ //draws X
+					int left=m*cellSize, right=k*cellSize;
+					for (int i = (cellSize*0.10); i <(cellSize*0.90); ++i) {
+						for (int j = 0; j <cellSize*0.01 ; ++j) {
+						//left
+						image[dimx*(i+left)+(i+(right))+j].red = redC;
+						image[dimx*(i+left)+(i+(right))+j].green = greenC;
+						image[dimx*(i+left)+(i+(right))+j].blue = blueC;
+						//right
+						image[dimx*(cellSize+left)-dimx*i+(i+right)+j].red = redC;
+						image[dimx*(cellSize+left)-dimx*i+(i+right)+j].green = greenC;
+						image[dimx*(cellSize+left)-dimx*i+(i+right)+j].blue = blueC;
 						}
 					}
 				}
-				else if(c == 'X'){ //draws X
-					int left=k*cellSize+gridWidth,right=k*cellSize+cellSize-gridWidth-1;
-					int row=0;
-					for (int i = m*cellSize+gridWidth; i < m*cellSize+cellSize-gridWidth; ++i)  {  // row
-						//left
-						image[dimx*i+left+row].red = redC;
-						image[dimx*i+left+row].green = greenC;
-						image[dimx*i+left+row].blue = blueC;
-						//right
-						image[dimx*i+right-row].red = redC;
-						image[dimx*i+right-row].green = greenC;
-						image[dimx*i+right-row].blue = blueC;
-						row++;
+				
+				else{// c == 'O', draws O			
+				    int circle_radius=cellSize;
+				    int xmid = cellSize/2.0;
+				    int ymid = cellSize/2.0;
+				    for (int i = 0; i <cellSize ; ++i) {
+					for (int j = 0; j <cellSize ; ++j) {
+						int tempx = i;
+						int tempy = j;
+						if(pow((((i-xmid)*(i-xmid)+(j-ymid)*(j-ymid)-(((cellSize)*0.45)*((cellSize)*0.45)))),2)<=pow(cellSize,2)){
+							image[dimx*(i+m*cellSize)+(j+(k*cellSize))].green = redC;
+							image[dimx*(i+m*cellSize)+(j+(k*cellSize))].red = greenC;
+							image[dimx*(i+m*cellSize)+(j+(k*cellSize))].blue = blueC;
+						}
 					}
-				}
-				else{ // c == 'O', draws O
-					double varY = m*cellSize+gridWidth, varX = k*cellSize+gridWidth;
-					double y = varY/2+(m*cellSize+cellSize-gridWidth-1)/2, x = varX/2+(k*cellSize+cellSize-gridWidth-1)/2, radius = cellSize/2-2*gridWidth;
-				    	for (int i = varY; i < m*cellSize+cellSize-gridWidth; ++i)  {  // row
-				        	for (int j = varX; j < k*cellSize+cellSize-gridWidth; ++j) { // column
-						    double d=pow(x-j,2)+pow(y-i,2);
-						    d=sqrt (d);
-						    d=abs(d-radius);
-						    image[dimx*i+j].red = redC;
-						    image[dimx*i+j].green = greenC;
-						    image[dimx*i+j].blue = blueC;
-				        	}
-				    	}
-				}
-			}
+				    }
+				}	
 		}
+}
 		
 		///
 		///image processing

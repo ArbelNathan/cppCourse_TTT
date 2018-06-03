@@ -1,4 +1,4 @@
-/*#include <stdio.h>
+#include <stdio.h>
 #include <string>
 #include "DummyPlayers.h"
 #include "Coordinate.h"
@@ -16,4 +16,4 @@ class Champion: virtual public Player{
 		const Coordinate play(const Board& board) override;
 		void getRival(string name, bool first);
 };
-*/
+

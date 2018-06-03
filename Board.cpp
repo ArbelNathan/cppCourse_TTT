@@ -32,7 +32,7 @@
 		}
 		return this->gameTable[x][y];
 	}
-/*
+
 	Cell& Board::operator[] (Coordinate& c) const{
 	    	int x=c.getRow();
 		int y=c.getCol();
@@ -41,7 +41,7 @@
 		}
 		return this->gameTable[x][y];
 	}
-  */      
+        
         ostream& operator<< (ostream& os, const Board& n){
         	for (int i = 0; i < n.Size; i++) {
         		for (int j = 0; j < n.Size; j++) {
